@@ -1,11 +1,11 @@
 export const userQuery = (userId) => {
-  const query = `*[_type  == "user" && _id == '${userId}']`;
+	const query = `*[_type  == "user" && _id == '${userId}']`
 
-  return query;
-};
+	return query
+}
 
 export const searchQuery = (searchTerm) => {
-  const query = `*[_type  == "pin" && title match '${searchTerm}*' || category match '${searchTerm}*' || about match '${searchTerm}*']{
+	const query = `*[_type  == "pin" && title match '${searchTerm}*' || category match '${searchTerm}*' || about match '${searchTerm}*']{
     image {
       asset -> {
         url
@@ -26,10 +26,10 @@ export const searchQuery = (searchTerm) => {
         image
       },
     },
-  }`;
+  }`
 
-  return query;
-};
+	return query
+}
 
 export const feedQuery = `*[_type == "pin"] | order(_createdAt desc) {
   image{
@@ -52,4 +52,4 @@ export const feedQuery = `*[_type == "pin"] | order(_createdAt desc) {
         image
       },
     },
-}`;
+}`

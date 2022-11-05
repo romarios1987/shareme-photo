@@ -1,5 +1,5 @@
 const CreatePin = () => {
-  return <div>CreatePin</div>;
-};
+	return <div>CreatePin</div>
+}
 
-export default CreatePin;
+export default CreatePin
