@@ -97,7 +97,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
 									{destination.length > 15 ? `${destination.slice(0, 13)}...` : destination}
 								</a>
 							)}
-							{postedBy?._id === user.sub && (
+							{postedBy?._id === user?.sub && (
 								<button
 									className='bg-white p-2 rounded-full w-8 h-8 flex items-center justify-center text-dark opacity-75 hover:opacity-100 outline-none'
 									onClick={(e) => {
