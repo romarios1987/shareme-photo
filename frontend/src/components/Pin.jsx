@@ -15,7 +15,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
 
 	const user = fetchUser()
 
-	const alreadySaved = !!save?.filter((item) => item.postedBy._id === user.sub)?.length
+	const alreadySaved = !!save?.filter((item) => item?.postedBy?._id === user?.sub)?.length
 
 	const savePin = (id) => {
 		if (!alreadySaved) {
@@ -25,10 +25,10 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
 				.insert('after', 'save[-1]', [
 					{
 						_key: uuidv4(),
-						userId: user.sub,
+						userId: user?.sub,
 						postedBy: {
 							_type: 'postedBy',
-							_ref: user.sub,
+							_ref: user?.sub,
 						},
 					},
 				])
@@ -52,7 +52,10 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
 				onMouseEnter={() => setPostHovered(true)}
 				onMouseLeave={() => setPostHovered(false)}
 				onClick={() => navigate(`/pin-detail/${_id}`)}>
-				<img src={urlFor(image).width(250).url()} className='rounded-lg w-full' alt='s' />
+				{image && (
+					<img src={urlFor(image).width(250).url()} className='rounded-lg w-full' alt='user-post' />
+				)}
+
 				{postHovered && (
 					<div
 						className='absolute top-0 w-full h-full flex flex-col justify-between p-1 pr-2 pt-2 pb-2 z-50'

@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom'
-import { IoMdAdd, IoMdSearch } from 'react-icons/io'
+import { IoMdAdd, IoMdSearch, IoMdClose } from 'react-icons/io'
 
 const Navbar = ({ searchTerm, setSearchTerm, user }) => {
 	const navigate = useNavigate()
@@ -18,6 +18,11 @@ const Navbar = ({ searchTerm, setSearchTerm, user }) => {
 					onFocus={() => navigate('/search')}
 					className='p-2 w-full bg-white outline-none'
 				/>
+				{searchTerm && (
+					<button type='button' className='' onClick={() => setSearchTerm('')}>
+						<IoMdClose />
+					</button>
+				)}
 			</div>
 			<div className='flex gap-3'>
 				<Link to={`user-profile/${user?._id}`} className='hidden md:block'>
