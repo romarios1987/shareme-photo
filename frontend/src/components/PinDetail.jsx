@@ -83,8 +83,8 @@ const PinDetail = ({ user }) => {
 								<MdDownloadForOffline />
 							</a>
 						</div>
-						<a href={pinDetail?.destination} target='_blank' rel='noreferrer'>
-							{pinDetail?.destination}
+						<a href={pinDetail?.destination} target='_blank' rel='noreferrer' className='font-bold'>
+							Link to destination
 						</a>
 					</div>
 					<div className=''>
